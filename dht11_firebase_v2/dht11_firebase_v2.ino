@@ -127,7 +127,7 @@ void loop() {
       Firebase.RTDB.setInt(&fbdo, "/103/dht/timestamp", now);
     } else {
       Serial.println("⚠️ DHT sensor read failed.");
-      Firebase.RTDB.setString(&fbdo, "/101/errors/dht", "Failed to read from DHT sensor");
+      Firebase.RTDB.setString(&fbdo, "/103/errors/dht", "Failed to read from DHT sensor");
     }
   }
 
@@ -147,7 +147,7 @@ void loop() {
       }
 
       previousRelayStatus = relayStatus;
-      Firebase.RTDB.setInt(&fbdo, "/103/relay/status", relayStatus);
+      //Firebase.RTDB.setInt(&fbdo, "/103/relay/status", relayStatus);
     } else {
       Serial.println("Relay status unchanged, no action taken.");
     }
