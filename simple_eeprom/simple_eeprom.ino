@@ -1,5 +1,5 @@
 // ESP32 WiFi Manager with EEPROM Configuration Storage
-// ------------------------------------------------------
+// Last Updated: April 23, 2025
 // Program Flow Overview:
 // 1. On startup, read WiFi credentials from EEPROM.
 // 2. If the SSID is missing, or button on GPIO 0 is pressed, enter AP (Access Point) mode.
@@ -16,7 +16,10 @@
 // - Scans for nearby WiFi networks and displays them in a responsive table.
 // - Displays current stored credentials.
 // - Allows updating WiFi credentials and device ID.
-// Author: Ahmad Hanis | Date: 23/4/2025
+// - Non-blocking WiFi scan with live table update.
+// - LED indicator on GPIO 2 lights up when in AP mode.
+// - Improved user feedback messages on configuration save and data clear.
+// Author: Ahmad Hanis | Date: April 23, 2025
 // ------------------------------------------------------
 
 #include <EEPROM.h>
@@ -34,6 +37,8 @@ String scannedNetworks = "<p>Scanning networks...</p>";  // HTML content for sca
 
 // Setup function runs once when the device starts
 void setup() {
+  pinMode(2, OUTPUT); // LED indicator on GPIO 2 for AP mode
+  digitalWrite(2, LOW); // Turn off LED initially
   Serial.begin(115200);  // Start serial monitor for debugging
   Serial.println("Waiting for 5 seconds!");
   readData();  // Read stored credentials from EEPROM
@@ -119,6 +124,7 @@ void readData() {
 
 // Function to set device into Access Point mode for configuration
 void ap_mode() {
+  digitalWrite(2, HIGH); // Turn on LED to indicate AP mode
   Serial.println("AP Mode. Please connect to http://192.168.4.1 to configure");
   apmode = true;
   WiFi.mode(WIFI_AP_STA);  // Enable both AP and Station mode to allow scan
@@ -190,6 +196,7 @@ void createWebServer(int webtype) {
       writeData(ssidw, passw, devidw);
       server.send(200, "text/html", "<h2>Settings Saved Successfully</h2><p>The device will now restart to apply the new configuration.</p>");
       delay(2000);
+      digitalWrite(2, LOW); // Turn off LED before restart
       ESP.restart();
     });
 
