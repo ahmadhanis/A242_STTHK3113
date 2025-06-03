@@ -1,0 +1,2 @@
+C:/Users/slumb/Documents/GitHub/A242_STTHK3113/mqtt_dht_app/android/app/.cxx/Debug/6c4i2y4s/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/slumb/Documents/GitHub/A242_STTHK3113/mqtt_dht_app/android/app/.cxx/Debug/6c4i2y4s/x86_64/CMakeFiles/rebuild_cache.dir
