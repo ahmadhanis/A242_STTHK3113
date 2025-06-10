@@ -8,6 +8,7 @@
    - Favoriot account (https://platform.favoriot.com)
    - Device registered and API Key generated
    - ESP32 + DHT11 connected to GPIO 4
+   - https://www.youtube.com/watch?v=66Bt_Bq3hAw
 */
 
 #include <WiFi.h>     // WiFi library for ESP32
