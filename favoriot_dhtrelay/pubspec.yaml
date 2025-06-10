@@ -1,0 +1,22 @@
+name: favoriot_dhtrelay
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  fl_chart: ^1.0.0
+  flutter:
+    sdk: flutter
+  http: ^1.4.0
+  intl: ^0.20.2
+
+dev_dependencies:
+  flutter_lints: ^5.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true

@@ -3,8 +3,8 @@
 #include <DHT.h>
 
 // Wi-Fi credentials
-const char* ssid     = "your-ap";
-const char* password = "your-pass";
+const char* ssid     = "myUUM_Guest";
+const char* password = "";
 
 // Public Mosquitto test broker
 const char* mqttServer = "test.mosquitto.org";
