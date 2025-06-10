@@ -9,6 +9,7 @@
    - Device registered and API Key generated
    - ESP32 + DHT11 connected to GPIO 4
    - https://www.youtube.com/watch?v=66Bt_Bq3hAw
+   - https://github.com/ahmadhanis/A242_STTHK3113/tree/main/favoriot_dhtrelay (Flutter APP)
 */
 
 #include <WiFi.h>     // WiFi library for ESP32
